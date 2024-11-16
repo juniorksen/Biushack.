@@ -102,13 +102,20 @@ if (Astro.request.method === 'POST') {
     const formData = await Astro.request.formData();
     registrationResult = await registerUser(formData);
 
+   // Si el registro es exitoso, redirige al usuario a la página de inicio de sesión
+    
     if (registrationResult?.success) {
-        return new Response(JSON.stringify({ success: true }), {
-            status: 200,
-            headers: { 'Content-Type': 'application/json' },
-        });
-    }
-}
+            return new Response(
+                JSON.stringify({ success: true }),
+                {
+                    status: 200,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Location': '/login-form',  // Cambia '/login' a la URL a la que quieras redirigir
+                    },
+                }
+            );
+        }
 
 ---
 
