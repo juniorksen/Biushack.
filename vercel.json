@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "builds": [{
+        "src": "package.json",
+        "use": "@vercel/astro"
+    }],
+    "env": {
+        "DATABASE_URL": "postgresql://juniorksen_user:v8R2N6vuW4eLpB9s6fbi61wvXLaub3ec@dpg-css1c8a3esus739gjefg-a.oregon-postgres.render.com/juniorksen"
+    },
+    "routes": [{
+        "src": "/(.*)",
+        "dest": "/$1"
+    }]
+}
